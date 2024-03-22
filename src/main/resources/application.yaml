@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  sql:
+    init:
+      encoding: utf-8
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: test1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_schema: tmdb
+    generate-ddl: true
+cors-policies: http://localhost:4200/, http://127.0.0.1:4200/, http://[::1]:4200/
+
+logging:
+  level:
+    com.progmasters: debug
+    org.springframework.web: info
+    org.hibernate: error
+  pattern:
+    console: "%cyan(%d{yyyy-MM-dd HH:mm:ss}) [%green(%thread)] %highlight(%-5level) %yellow(%logger{36}) - %msg%n"
